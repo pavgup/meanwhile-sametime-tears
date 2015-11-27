@@ -44,7 +44,7 @@ case "${host}" in
 *mingw32 | *cygwin)
 	MW_SO_OS_FLAGS="-shared -no-undefined";;
 *)
-	MW_SO_OS_FLAGS="-shared";;
+	MW_SO_OS_FLAGS="";;
 esac
 AC_SUBST(MW_SO_OS_FLAGS)
 
