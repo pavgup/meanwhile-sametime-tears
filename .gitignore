@@ -60,7 +60,7 @@ doc/html/
 doc/latex/
 doc/man/
 
-# Avoi committing autotool artifacts
+# Avoid committing autotool artifacts
 m4/
 
 # Avoid committing samples artifacts
@@ -70,3 +70,6 @@ samples/build
 src/.deps/
 src/.libs/
 src/mpi/.deps/
+
+# Avoid keeping backup files, we have git
+*.bak
