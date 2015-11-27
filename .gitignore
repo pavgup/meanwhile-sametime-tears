@@ -52,3 +52,21 @@ mkinstalldirs
 *.tar.gz
 test*
 tmp
+ltmain.sh
+
+# Avoid committing built elements to git for docs
+doc/Doxyfile
+doc/html/
+doc/latex/
+doc/man/
+
+# Avoi committing autotool artifacts
+m4/
+
+# Avoid committing samples artifacts
+samples/build
+
+# Avoid commiting src build artifacts:
+src/.deps/
+src/.libs/
+src/mpi/.deps/
