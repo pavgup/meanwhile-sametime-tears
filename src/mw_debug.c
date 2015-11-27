@@ -2,17 +2,17 @@
 /*
   Meanwhile - Unofficial Lotus Sametime Community Client Library
   Copyright (C) 2004  Christopher (siege) O'Brien
-  
+
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Library General Public
   License as published by the Free Software Foundation; either
   version 2 of the License, or (at your option) any later version.
-  
+
   This library is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
   Library General Public License for more details.
-  
+
   You should have received a copy of the GNU Library General Public
   License along with this library; if not, write to the Free
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -45,7 +45,7 @@ static void pretty_print(GString *str, const guchar *buf, gsize len) {
 			   buf[8],  buf[9],  buf[10], buf[11],
 			   buf[12], buf[13], buf[14], buf[15]);
     ADVANCE(buf, len, 16);
-    
+
     /* append \n to each line but the last */
     if(len) g_string_append(str, "\n");
   }
@@ -57,7 +57,7 @@ static void pretty_print(GString *str, const guchar *buf, gsize len) {
 			   buf[4], buf[5], buf[6], buf[7]);
     ADVANCE(buf, len, 8);
   }
-  
+
   if(len >= 4) {
     g_string_append_printf(str, FRMT4,
 			   buf[0], buf[1], buf[2], buf[3]);
@@ -101,7 +101,7 @@ void mw_debug_datav(const guchar *buf, gsize len,
 void mw_debug_data(const guchar *buf, gsize len,
 		   const char *msg, ...) {
   va_list args;
-  
+
   g_return_if_fail(buf != NULL || len == 0);
 
   va_start(args, msg);
@@ -149,7 +149,7 @@ void mw_mailme_datav(const guchar *buf, gsize len,
 
   g_string_append(str, MW_MAILME_CUT_STOP);
 
-  g_debug(str->str);
+  g_debug("%s", str->str);
   g_string_free(str, TRUE);
 
 #else
