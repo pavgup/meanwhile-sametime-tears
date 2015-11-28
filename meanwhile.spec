@@ -1,20 +1,20 @@
-%define with_doc_subpackage  @WITH_DOC_SUBPACKAGE@%{nil}
+%define with_doc_subpackage  1%{nil}
 
 
 Summary: IBM/Lotus Sametime Protocol Decentralization Client
-Name: @PACKAGE@
+Name: meanwhile-tears
 Epoch: 0
-Version: @VERSION@
-Release: @RELEASE@
+Version: 0.1.0
+Release: arsenic
 License: GNU Affero General Public License Version 3
 Group: Applications/Internet
 URL: https://github.com/pavgup/meanwhile-sametime-tears/
 
-Requires: glib2 >= @GLIB_VERSION@
+Requires: glib2 >= 2.0.0
 
 Source0: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: glib2-devel >= @GLIB_VERSION@
+BuildRequires: glib2-devel >= 2.0.0
 
 %if %{with_doc_subpackage}
 BuildRequires: doxygen

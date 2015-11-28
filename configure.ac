@@ -1,8 +1,7 @@
-
 # version of meanwhile
-m4_define(meanwhile_major,	1)
+m4_define(meanwhile_major,	0)
 m4_define(meanwhile_minor,	1)
-m4_define(meanwhile_micro,	1)
+m4_define(meanwhile_micro,	0)
 
 # release of meanwhile. 0 for CVS, 1 for release
 m4_define(meanwhile_release,	0)
@@ -10,11 +9,12 @@ m4_define(meanwhile_release,	0)
 # required and compat version of glib2.
 m4_define(glib_required_version,	2.0.0)
 
-AC_INIT([meanwhile], meanwhile_major.meanwhile_minor.meanwhile_micro)
+AC_INIT([meanwhile tears], [meanwhile_major.meanwhile_minor.meanwhile_micro], [pg8p@virginia.edu])
 AC_CONFIG_SRCDIR([src/common.c])
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([-Wall -Werror foreign])
+AM_PROG_AR([ACT-IF-FAIL])
 
-RELEASE=meanwhile_release
+RELEASE=arsenic
 AC_SUBST(RELEASE)
 
 AC_PREREQ([2.50])
@@ -27,8 +27,6 @@ AC_PROG_LIBTOOL
 LIBTOOL="$LIBTOOL --silent"
 
 AC_HEADER_STDC
-
-
 
 # current:revision:age
 MW_SO_VERSION=$((meanwhile_major+meanwhile_minor)):meanwhile_micro:meanwhile_minor
@@ -43,7 +41,7 @@ case "${host}" in
 *mingw32 | *cygwin)
 	MW_SO_OS_FLAGS="-shared -no-undefined";;
 *)
-	MW_SO_OS_FLAGS="";;
+	MW_SO_OS_FLAGS="-shared";;
 esac
 AC_SUBST(MW_SO_OS_FLAGS)
 
@@ -123,6 +121,8 @@ AC_CONFIG_FILES(
 
 AC_CONFIG_FILES([samples/build], [chmod +x samples/build])
 
+AC_CONFIG_HEADERS([config.h])
+
 AC_OUTPUT()
 
 
@@ -150,4 +150,4 @@ echo you may need to run \`ldconfig\` as root after installation before
 echo being able to load this library
 echo
 
-# The End.
+#: The End.

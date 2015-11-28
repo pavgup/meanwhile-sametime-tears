@@ -1,75 +1,67 @@
-# Object files
+*~
 *.o
-*.ko
-*.obj
-*.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
+*.lo
 *.a
 *.la
-*.lo
+/build*/
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# autotools stuff
+/m4/lt*.m4
+/m4/libtool.m4
+/aclocal.m4
+/ltmain.sh
+/install-sh
+/config.guess
+/config.h.in
+/config.sub
+/autom4te.cache/
+/compile
+/configure
+/depcomp
+/missing
+/test-driver
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# automake
+/ar-lib
+Makefile.in
 
-# Debug files
-*.dSYM/
+# cscope and other tags
+/cscope.*
+/GPATH
+/GRTAGS
+/GSYMS
+/GTAGS
 
-# From git://git.code.sf.net/p/meanwhile/git
+/autom4te.cache/
+/config/
+Makefile
+Makefile.in
 aclocal.m4
-autom4te.cache
+app.info
 compile
-config.*
+config.h
+config.h.in
+config.log
+config.status
 configure
-configwrap
+configure.scan
+coverage_report
 depcomp
 install-sh
 libtool
-Makefile
-Makefile.in
+m4
 missing
-mkinstalldirs
-*.pc
-*.rpm
-*.spec
-*.swp
-*.tar.gz
-test*
-tmp
-ltmain.sh
-
-# Avoid committing built elements to git for docs
-doc/Doxyfile
-doc/html/
-doc/latex/
-doc/man/
-
-# Avoid committing autotool artifacts
-m4/
-
-# Avoid committing samples artifacts
-samples/build
-
-# Avoid commiting src build artifacts:
-src/.deps/
-src/.libs/
-src/mpi/.deps/
-
-# Avoid keeping backup files, we have git
-*.bak
+stamp-h1
+*~
+*.html
+*.log
+*.o
+*.la
+*.so*
+*.a
+.deps
+*.tar*
+*.zip
+*.lo
+*.gcno
+*.gcda

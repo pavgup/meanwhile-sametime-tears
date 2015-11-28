@@ -34,7 +34,7 @@ fi
 
 # let's make sure we can find our aclocal macros
 if test -d /usr/local/share/aclocal ; then
-    ACLOCAL_FLAGS="-I /usr/local/share/aclocal"
+    ACLOCAL_FLAGS="-I m4 -I /usr/local/share/aclocal"
 fi
 
 ECHO "Running aclocal $ACLOCAL_FLAGS"
@@ -43,14 +43,14 @@ aclocal $ACLOCAL_FLAGS || exit $?
 
 
 
-# ECHO "Running autoheader"
-# autoheader || exit $?
+ECHO "Experimentally running autoheader"
+autoheader || exit $?
 
 
 
 # put in license and stuff if necessary
 if test -z "$AUTOMAKE_FLAGS" ; then
-    AUTOMAKE_FLAGS="--add-missing --copy"
+    AUTOMAKE_FLAGS="--copy --add-missing --foreign"
 fi
 
 ECHO "Running automake $AUTOMAKE_FLAGS"
