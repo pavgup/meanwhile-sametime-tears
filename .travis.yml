@@ -10,7 +10,7 @@ addons:
       version: 0.1.0
       description: finding ways to make sametime not the very worst
     notification_email: pg8p@virginia.edu
-    build_command_prepend: ./configure
+    build_command_prepend: ./autogen.sh && ./configure
     build_command: make
     branch_pattern: coverity_scan
 script:
@@ -24,6 +24,7 @@ notifications:
   webhooks:
     urls:
       - https://webhooks.gitter.im/e/e026a5a61d0a8b52b1d0
+      - https://webhooks.gitter.im/e/37b8ae11451965653786 #drone.io
     on_success: change  # options: [always|never|change] default: always
     on_failure: always  # options: [always|never|change] default: always
     on_start: never     # options: [always|never|change] default: always
