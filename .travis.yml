@@ -17,15 +17,6 @@ addons:
     build_command_prepend: ./configure
     build_command: make
     branch_pattern: coverity_scan
-before_install:
-  - brew update
-  - brew install pyenv
-  - eval "$(pyenv init -)"
-  - pyenv install 2.7.6
-  - pyenv global 2.7.6
-  - pyenv rehash
-  - pip install cpp-coveralls
-  - pyenv rehash
 script:
   - ./configure --enable-gcov && make && make check
 after_success:
@@ -40,6 +31,22 @@ matrix:
     - compiler: gcc
       os: linux
       env: CONFIG=autotools
+      before_install:
+        - sudo apt-get install doxygen
+        - eval "$(pyenv init -)"
+        - pyenv install 2.7.6
+        - pyenv global 2.7.6
+        - pyenv rehash
+        - pip install cpp-coveralls
+        - pyenv rehash
     - compiler: clang
       os: osx
       env: CONFIG=autotools
+      before_install:
+        - brew install doxygen
+        - eval "$(pyenv init -)"
+        - pyenv install 2.7.6
+        - pyenv global 2.7.6
+        - pyenv rehash
+        - pip install cpp-coveralls
+        - pyenv rehash
