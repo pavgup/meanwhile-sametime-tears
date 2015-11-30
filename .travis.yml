@@ -37,8 +37,7 @@ matrix:
       os: linux
       env: CONFIG=autotools
       apt:
-        packages: ["doxygen", "pyenv"]
-        sources: *sources
+        packages: ["doxygen"]
       before_install:
         - pip install --user cpp-coveralls
     - compiler: clang
