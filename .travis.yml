@@ -4,6 +4,7 @@ compiler:
     - clang
 before_install:
   - pip install --user codecov
+  - brew install doxygen
 script: ./autogen.sh && ./configure --enable-gcov && make && make check
 after_success:
   - bash <(curl -s https://codecov.io/bash)
