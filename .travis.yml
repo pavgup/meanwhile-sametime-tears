@@ -14,7 +14,7 @@ addons:
     build_command: make
     branch_pattern: coverity_scan
 script:
-  - ./autogen.sh && ./configure --enable-gcov && make && make check
+  - if [ "${COVERITY_SCAN_BRANCH}" != 1 ]; then ./autogen.sh && ./configure --enable-gcov && make && make check ; fi
 after_success:
   - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
 notifications:
