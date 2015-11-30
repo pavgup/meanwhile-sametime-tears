@@ -1,6 +1,6 @@
 # Meanwhile Tears
-[![Build Status](https://travis-ci.org/pavgup/meanwhile-sametime-tears.svg)](https://travis-ci.org/pavgup/meanwhile-sametime-tears)
-[![Coverity Status](https://scan.coverity.com/projects/7115/badge.svg)](https://scan.coverity.com/projects/pavgup-meanwhile-sametime-tears)[![Coverage Status](https://coveralls.io/repos/pavgup/meanwhile-sametime-tears/badge.svg?branch=master&service=github)](https://coveralls.io/github/pavgup/meanwhile-sametime-tears?branch=master)
+[![Build Status](https://travis-ci.org/pavgup/meanwhile-sametime-tears.svg)](https://travis-ci.org/pavgup/meanwhile-sametime-tears)[![Coverage Status](https://coveralls.io/repos/pavgup/meanwhile-sametime-tears/badge.svg?branch=master&service=github)](https://coveralls.io/github/pavgup/meanwhile-sametime-tears?branch=master)
+[![Coverity Status](https://scan.coverity.com/projects/7115/badge.svg)](https://scan.coverity.com/projects/pavgup-meanwhile-sametime-tears)
 
 This project intends to extend meanwhile (the open source sametime protocol implementation) with fixes (destined for the upstream project) and, perhaps more importantly, a set of server-side utilities to obviate the need for client-side tools.  Christopher (siege) O'Brien <siege@preoccupied.net> is the current meanwhile maintainer and a ton of awesome people have made the suffering associated with IBM's incredibly persistent notes abomination liveable. Free software kind of rocks and in that spirit, importantly, I'm choosing to exclusively license this code using GNU's most-stringent copy-left license: AGPL 3.0.
 
