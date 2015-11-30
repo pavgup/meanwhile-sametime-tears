@@ -1,10 +1,45 @@
 language: c
-compiler:
-    - gcc
-    - clang
+
+# Use the faster container-based infrastructure.
+sudo: false
+
+env:
+  global:
+    # COVERITY_SCAN_TOKEN
+    - secure: "FtMb7C/8Y/Jokdr1udYIhurVOj859GxScfimUB4l5QWnuRvmq51bnJ81lIGvAoHE8Kh2p7XVYfDRNuPR2PmX1g1rim30+t+8HqllHBG5hxz6ewTfDlnGxxWvdmnD1uylVJpBQpU2+DgIKoyTPTU93LEiDeBhG40eEwx2crzV2UgQyL6RoFIaMST5sWsTwJ5EysaoKoWTw/l85wItOTqH5FHpEPrD5nscPVgy/HAiZwWb3m70wocHCox2e6PHTbRbdOiWfTu0vZNNWYesGTGLEHzj/tG0ZYM+E+6q4lh+lWEKZyGTmCRGSd8VG9me4s1K1vyTpnrdTTusWeB4Uu2Vkzfb85CBOj7PdRoFWYV/07gVKMNiW8FXHuxgOoA3xsEuWWHNurbxuS7BviPQsAESVwrvJcV3Ku2Fxp+q1K4QQJhs8F0TrwE1U6+di+sWgJjood56GINKAj+Xn2U6vSDCABQrkDSH0y/ere/wG39kEUTk+Pdc1dhWrfk6YLL/3uyMh7m+olbx5W6b3tNfsR0ffZRRs+uN2SefhyB+MLW3XOT415QkUoE4b/U2Olo7iq0xBFDCZx1XrzjJrxmPcD4c9CkQO8mWWC3wH6iq622nqBGMtsYGYjq/MgD0JElAzLFOeD8N4kcEv/YHcZNqVAfhIGDMGk/jxMxnZW6F496iv7Y="
+addons:
+  coverity_scan:
+    project:
+      name: pavgup/meanwhile-sametime-tears
+      version: 0.1.0
+      description: finding ways to make sametime not the very worst
+    notification_email: pg8p@virginia.edu
+    build_command_prepend: ./configure
+    build_command: make
+    branch_pattern: coverity_scan
 before_install:
-  - pip install --user codecov
-  - brew install doxygen
-script: ./autogen.sh && ./configure --enable-gcov && make && make check
+  - brew update
+  - brew install pyenv
+  - eval "$(pyenv init -)"
+  - pyenv install 2.7.6
+  - pyenv global 2.7.6
+  - pyenv rehash
+  - pip install cpp-coveralls
+  - pyenv rehash
+script:
+  - ./configure --enable-gcov && make && make check
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+
+matrix:
+  include:
+    - compiler: gcc
+      os: linux
+      env: CONFIG=autotools
+    - compiler: clang
+      os: osx
+      env: CONFIG=autotools
