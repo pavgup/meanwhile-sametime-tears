@@ -38,7 +38,6 @@ matrix:
         - sudo apt-get update -q
         - sudo apt-get install --only-upgrade autoconf
         - sudo apt-get install doxygen
-        - sudo apt-get install build-essential autoconf automake libtool pkg-config
         - pip install --user cpp-coveralls
     - compiler: clang
       os: osx
