@@ -22,7 +22,14 @@ AC_PREREQ([2.50])
 AM_MAINTAINER_MODE
 
 AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_AWK
+AC_PROG_CC
+AC_PROG_CPP
 AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+AC_PROG_RANLIB
 AC_PROG_LIBTOOL
 LIBTOOL="$LIBTOOL --silent"
 
@@ -118,6 +125,19 @@ AC_CHECK_LIB(m, main, LIBM="-lm")
 AC_CHECK_HEADER(math.h)
 AC_SUBST(LIBM)
 
+AC_CHECK_HEADERS([limits.h netdb.h netinet/in.h stdlib.h string.h sys/socket.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_SIZE_T
+
+# Checks for library functions.
+AC_CHECK_FUNCS([gethostbyname memset socket strchr strrchr strstr])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_SIZE_T
+
+# Checks for library functions.
+AC_CHECK_FUNCS([gethostbyname memset socket strchr strrchr strstr])
 
 
 # Glib-2.0
