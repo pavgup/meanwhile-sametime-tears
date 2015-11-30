@@ -37,15 +37,10 @@ matrix:
       os: linux
       env: CONFIG=autotools
       apt:
-        packages: ["doxygen"]
+        packages: ["doxygen", "pyenv"]
         sources: *sources
       before_install:
-        - eval "$(pyenv init -)"
-        - pyenv install 2.7.6
-        - pyenv global 2.7.6
-        - pyenv rehash
-        - pip install cpp-coveralls
-        - pyenv rehash
+        - pip install --user cpp-coveralls
     - compiler: clang
       os: osx
       env: CONFIG=autotools
