@@ -32,9 +32,8 @@ matrix:
     - compiler: gcc
       os: linux
       env: CONFIG=autotools
-      apt:
-        packages: ["doxygen"]
       before_install:
+        - sudo apt-get install doxygen
         - pip install --user cpp-coveralls
     - compiler: clang
       os: osx
@@ -42,6 +41,7 @@ matrix:
       before_install:
         - brew install doxygen
         - brew install pkg-config
+        - brew install glib
         - eval "$(pyenv init -)"
         - pyenv install 2.7.6
         - pyenv global 2.7.6
