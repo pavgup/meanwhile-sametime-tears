@@ -1,8 +1,4 @@
 language: c
-
-# Use the faster container-based infrastructure.
-sudo: false
-
 env:
   global:
     # COVERITY_SCAN_TOKEN
@@ -45,6 +41,7 @@ matrix:
       env: CONFIG=autotools
       before_install:
         - brew install doxygen
+        - brew install pkg-config
         - eval "$(pyenv init -)"
         - pyenv install 2.7.6
         - pyenv global 2.7.6
