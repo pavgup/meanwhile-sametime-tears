@@ -32,7 +32,7 @@ matrix:
       os: linux
       env: CONFIG=autotools
       before_install:
-        - sudo apt-get install doxygen
+        - apt-get install doxygen
         - eval "$(pyenv init -)"
         - pyenv install 2.7.6
         - pyenv global 2.7.6
