@@ -1,7 +1,7 @@
-# The Meanwhile Tears Project - An Ephemeral, Open Sametime Client
+# Meanwhile Tears
+[![Build Status](https://travis-ci.org/pavgup/meanwhile-sametime-tears.svg)](https://travis-ci.org/pavgup/meanwhile-sametime-tears)
+[![Coverity Status](https://scan.coverity.com/projects/7115/badge.svg)](https://scan.coverity.com/projects/pavgup-meanwhile-sametime-tears)[![Coverage Status](https://coveralls.io/repos/pavgup/meanwhile-sametime-tears/badge.svg?branch=master&service=github)](https://coveralls.io/github/pavgup/meanwhile-sametime-tears?branch=master)
 
-Backstory
----------
 This project intends to extend meanwhile (the open source sametime protocol implementation) with fixes (destined for the upstream project) and, perhaps more importantly, a set of server-side utilities to obviate the need for client-side tools.  Christopher (siege) O'Brien <siege@preoccupied.net> is the current meanwhile maintainer and a ton of awesome people have made the suffering associated with IBM's incredibly persistent notes abomination liveable. Free software kind of rocks and in that spirit, importantly, I'm choosing to exclusively license this code using GNU's most-stringent copy-left license: AGPL 3.0.
 
 ### Baselining Meanwhile 1.1.0 Library
@@ -16,12 +16,12 @@ The upstream meanwhile project is licensed under the antiquated GNU Library Gene
 Installation
 ------------
 Almost nothing but a macbook pro running a beta variant of xcode and osx has provably run this codebase.  I suspect it will compile very broadly, however.
-### Version: Arsenic (0.1.0-alpha) 
+### Version: Arsenic (0.1.0-alpha)
 
 The major versino will just correspond to the first letter of an amusing common-name.  Semantic versioning and all being considerd.
 ## OS X using Homebrew!
 Pre-requisites first (probably incomplete -- maybe xcode is required):
-```sh 
+```sh
 $ brew install glib automake libtool pkg-config doxygen git
 ```
 Grab the code:

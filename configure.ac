@@ -26,6 +26,9 @@ AC_PROG_INSTALL
 AC_PROG_LIBTOOL
 LIBTOOL="$LIBTOOL --silent"
 
+# Use the C language and compiler for the following checks
+AC_LANG([C])
+
 AC_HEADER_STDC
 
 # current:revision:age
@@ -68,6 +71,25 @@ if test "$enableval" = "no" ; then
 fi
 AC_SUBST(MW_MAILME)
 
+
+# Enable gcov suport.
+AC_ARG_ENABLE([gcov],
+AC_HELP_STRING([--enable-gcov],
+[build binaries with gcov support]), [use_gcov=yes], [use_gcov=no])
+if test "x$use_gcov" = xyes; then
+  if test "x$CLANG" = xyes; then
+    CFLAGS="$CFLAGS -fprofile-arcs -ftest-coverage"
+  else
+    CFLAGS="$CFLAGS --coverage"
+  fi
+fi
+AM_CONDITIONAL(GCOV, test "$use_gcov" = yes)
+
+if test "x$use_gcov" = xyes; then
+  CFLAGS="$CFLAGS -O0 -g -Wall"
+else
+  CFLAGS="$CFLAGS $OLD_CFLAGS"
+fi
 
 
 # Doxygen generation option
