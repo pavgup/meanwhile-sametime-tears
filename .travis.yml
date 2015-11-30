@@ -31,8 +31,10 @@ matrix:
     - compiler: gcc
       os: linux
       env: CONFIG=autotools
+      apt:
+        packages: ["doxygen"]
+        sources: *sources
       before_install:
-        - apt-get install doxygen
         - eval "$(pyenv init -)"
         - pyenv install 2.7.6
         - pyenv global 2.7.6
