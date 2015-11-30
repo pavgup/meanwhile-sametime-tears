@@ -9,7 +9,7 @@ m4_define(meanwhile_release,	0)
 # required and compat version of glib2.
 m4_define(glib_required_version,	2.0.0)
 
-AC_INIT([meanwhile tears], [meanwhile_major.meanwhile_minor.meanwhile_micro], [pg8p@virginia.edu])
+AC_INIT([meanwhile tears],[meanwhile_major.meanwhile_minor.meanwhile_micro],[pg8p@virginia.edu])
 AC_CONFIG_SRCDIR([src/common.c])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 AM_PROG_AR([ACT-IF-FAIL])
@@ -17,7 +17,7 @@ AM_PROG_AR([ACT-IF-FAIL])
 RELEASE=arsenic
 AC_SUBST(RELEASE)
 
-AC_PREREQ([2.50])
+AC_PREREQ([2.69])
 
 AM_MAINTAINER_MODE
 
@@ -30,7 +30,7 @@ AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_PROG_RANLIB
-AC_PROG_LIBTOOL
+LT_INIT
 LIBTOOL="$LIBTOOL --silent"
 
 # Use the C language and compiler for the following checks
@@ -81,8 +81,7 @@ AC_SUBST(MW_MAILME)
 
 # Enable gcov suport.
 AC_ARG_ENABLE([gcov],
-AC_HELP_STRING([--enable-gcov],
-[build binaries with gcov support]), [use_gcov=yes], [use_gcov=no])
+AS_HELP_STRING([--enable-gcov],[build binaries with gcov support]), [use_gcov=yes], [use_gcov=no])
 if test "x$use_gcov" = xyes; then
   if test "x$CLANG" = xyes; then
     CFLAGS="$CFLAGS -fprofile-arcs -ftest-coverage"
@@ -133,13 +132,6 @@ AC_TYPE_SIZE_T
 # Checks for library functions.
 AC_CHECK_FUNCS([gethostbyname memset socket strchr strrchr strstr])
 
-# Checks for typedefs, structures, and compiler characteristics.
-AC_TYPE_SIZE_T
-
-# Checks for library functions.
-AC_CHECK_FUNCS([gethostbyname memset socket strchr strrchr strstr])
-
-
 # Glib-2.0
 PKG_CHECK_MODULES(GLIB,
 [glib-2.0 >= glib_required_version],
@@ -165,7 +157,7 @@ AC_CONFIG_FILES([samples/build], [chmod +x samples/build])
 
 AC_CONFIG_HEADERS([config.h])
 
-AC_OUTPUT()
+AC_OUTPUT
 
 
 
